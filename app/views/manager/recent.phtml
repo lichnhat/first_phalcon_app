@@ -39,12 +39,14 @@
 				<?php
 					
 					foreach($recent as $r) {
-						echo "
-							<div class='once-recent'>
-								<span>ID : ".$r->user_id."</span> | <span> IP Address : ".$r->ip."</span> | <span> Time : ".$r->time."</span>
-							";
-						echo "<span style='float: right'>".$this->tag->linkTo("manager/delete/".$r->id, "x")."</span>";
-						echo "</div>"; 		
+						if((strtotime($r->time) - strtotime("-30 days")) >= 0) {
+							echo "
+								<div class='once-recent'>
+									<span>ID : ".$r->user_id."</span> | <span> IP Address : ".$r->ip."</span> | <span> Time : ".$r->time."</span>
+								";
+							echo "<span style='float: right'>".$this->tag->linkTo("manager/delete/".$r->id, "x")."</span>";
+							echo "</div>"; 	
+						}
 					}
 				?>
 			</div>
