@@ -1,0 +1,72 @@
+body, html {
+	height: 100%;
+}
+div#banner {
+	margin-bottom: 20px;
+	margin: -8px -8px 0 -8px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #ddd;
+	background-color: #222;
+}
+div#banner > p {
+	font-size: 30px;
+	font-family: Satisfy;
+	font-weight: 600;
+	font-style: italic;
+	border-bottom: 1px solid #ddd;
+	color: #fff;
+}
+div#content {
+	margin-top: 20px;
+	height: 100%;
+}
+div#aside-left {
+	border-top: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	float: left;
+	width: 19.9999%;
+	height: 100%;
+	box-sizing: border-box;
+}
+
+div#aside-left ul > li {
+	list-style: none;
+	padding: 10px 20px;
+	border-top: 1px dotted #ddd;
+}
+div#aside-left ul > li.active {
+	background-color: #ddd;
+}
+div#main {
+	padding-left: 50px;
+	height: 100%;
+	width: 79.9999%;
+	float: right;
+	box-sizing: border-box;
+}
+div.once-recent {
+	background-color: #dafbc8;
+	padding: 15px 5px;
+	box-sizing: border-box;
+}
+div#logout {
+	margin-top: 30px;
+}
+div.once-recent {
+	margin-top: 20px;
+}
+a {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+p.block_user {
+	text-decoration: line-through;
+}
+p.warning {
+	background-color: #a54545;
+	padding: 10px;
+	color: #fff;
+}

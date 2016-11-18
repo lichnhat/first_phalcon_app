@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register</title>
+	<?php $this->assets->outputCss(); ?>
+</head>
+<body>
+	<div id="root">
+		<div id="errors">
+		<?php
+			if($this->flash->has("warning")) {
+				$this->flash->output();
+			}
+		?>
+		</div>
+		<div id="title">
+			<h2>Đăng Ký Mới</h2>
+		</div>
+		<div id="form">
+			<?php echo $this->tag->form("register") ?>
+				
+				<p class="form-group">
+					<label for="nick_name">
+						Nick Name
+					</label>
+					<?php echo $this->tag->textField("nick_name"); ?>
+				</p>
+				<p class="form-group">
+					<label for="user_name">
+						User Name
+					</label>
+					<?php echo $this->tag->textField("user_name"); ?>
+				</p>
+				<p class="form-group">
+					<label for="password">
+						Password
+					</label>
+					<?php echo $this->tag->passwordField("password"); ?>
+				</p>
+				<p class="form-group">
+					<label for="confirmpassword">
+						Confirm Password
+					</label>
+					<?php echo $this->tag->passwordField("cpassword"); ?>
+				</p>
+				<p class="form-group">
+					<?php echo $this->tag->submitButton("Đăng Ký"); ?>
+				</p>
+
+			</form>
+		</div>
+	</div>
+</body>
+</html>

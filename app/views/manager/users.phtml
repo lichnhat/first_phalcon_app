@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Manager Users</title>
+	<?php $this->assets->outputCss(); ?>
+</head>
+<body>
+	<div id="banner">
+		<p>Admin Page</p>
+	</div>
+	<div id="content" style="margin-bottom: 40px;">
+		<div id="aside-left">
+			<ul>
+				<li class="active">
+					<?php echo $this->tag->linkTo("manager/index","Home"); ?></a>
+				</li>
+				<li>
+					<?php echo $this->tag->linkTo("manager/edit","Edit Profile"); ?></a>
+				</li>
+				<li>
+					<?php echo $this->tag->linkTo("manager/recent","Recent Login"); ?></a>
+				</li>
+				<li>
+					<?php echo $this->tag->linkTo("manager/users","Manager Member"); ?></a>
+				</li>
+			</ul>
+		</div>
+		<div id="main">
+			<div class="welcome">
+				<p style="font-size: 28px; font-weight: 500;">
+					Chào bạn : <?php echo $current->nick_name ?>
+					<br>Bạn đang trong trang quản trị thành viên website !
+				</p>
+				<p>
+					<?php
+						if($current->delete_property == 1) {
+							echo "<table border=1>";
+								echo "<thead>";
+									echo "<tr>";
+										echo "<th>";
+											echo "User's Account";
+										echo "</th>";
+										echo "<th>";
+											echo "Block/UnBlock";
+										echo "</th>";
+									echo "</tr>";
+								echo "</thead>";
+								echo "<tbody>";
+									foreach($users as $user) {
+										echo "<tr>";
+										if($user->blocked == 1) {
+											echo "<td><span style='text-decoration: line-through;'>".$user->user_name."</span></td>";
+											echo "<td>".$this->tag->linkTo("manager/unblock/".$user->id, "Un-block")."</td>";
+										}
+										else {
+											echo "<td><span>".$user->user_name."</span></td>";
+											echo "<td>".$this->tag->linkTo("manager/block/".$user->id,"Block")."</td>";
+										}
+										echo "</tr>";
+									}
+								echo "</tbody>";
+							echo "</table>";
+						} 
+						else {
+							echo $mess;
+						}
+					?>
+				</p>
+			</div>
+			<div id="logout">
+				<?php echo $this->tag->linkTo("manager/logout", "Logout") ?>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

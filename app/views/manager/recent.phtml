@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Recent Login</title>
+	<?php $this->assets->outputCss(); ?>
+</head>
+<body>
+	<div id="banner">
+		<p>Admin Page</p>
+	</div>
+	<div id="content" style="margin-bottom: 40px;">
+		<div id="aside-left">
+			<ul>
+				<li class="active">
+					<?php echo $this->tag->linkTo("manager/index","Home"); ?></a>
+				</li>
+				<li>
+					<?php echo $this->tag->linkTo("manager/edit","Edit Profile"); ?></a>
+				</li>
+				<li>
+					<?php echo $this->tag->linkTo("manager/recent","Recent Login"); ?></a>
+				</li>
+				<li>
+					<?php echo $this->tag->linkTo("manager/users","Manager Member"); ?></a>
+				</li>
+			</ul>
+		</div>
+		<div id="main">
+			<div class="welcome">
+				<p style="font-size: 28px; font-weight: 500;">
+					Chào bạn : <?php echo $user->nick_name ?>
+				</p>
+				<p>
+					Đây là lịch sử đăng nhập 30 ngày qua của bạn.
+				</p>
+			</div>
+			<div id="recent">
+				<?php
+					
+					foreach($recent as $r) {
+						echo "
+							<div class='once-recent'>
+								<span>ID : ".$r->user_id."</span> | <span> IP Address : ".$r->ip."</span> | <span> Time : ".$r->time."</span>
+							";
+						echo "<span style='float: right'>".$this->tag->linkTo("manager/delete/".$r->id, "x")."</span>";
+						echo "</div>"; 		
+					}
+				?>
+			</div>
+			<div id="logout">
+				<?php echo $this->tag->linkTo("manager/logout", "Logout") ?>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

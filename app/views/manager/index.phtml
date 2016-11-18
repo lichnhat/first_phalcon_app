@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Admin Page</title>
+	<?php $this->assets->outputCss(); ?>
+</head>
+<body>
+	<div id="banner">
+		<p>Admin Page</p>
+	</div>
+	<div id="content" style="margin-bottom: 40px;">
+		<div id="aside-left">
+			<ul>
+				<li class="active">
+					<?php echo $this->tag->linkTo("manager/index","Home"); ?></a>
+				</li>
+				<li>
+					<?php echo $this->tag->linkTo("manager/edit","Edit Profile"); ?></a>
+				</li>
+				<li>
+					<?php echo $this->tag->linkTo("manager/recent","Recent Login"); ?></a>
+				</li>
+				<li>
+					<?php echo $this->tag->linkTo("manager/users","Manager Member"); ?></a>
+				</li>
+			</ul>
+		</div>
+		<div id="main">
+			<p style="font-size: 28px; font-weight: 500;">
+				Trang Admin
+			</p>
+			<p>
+				<li>Quản lý thành viên.</li>
+				<li>Quản lý thông tin cá nhân</li>
+				<li>Lịch sử đăng nhập hệ thống</li>
+			</p>
+		</div>
+	</div>
+</body>
+</html>

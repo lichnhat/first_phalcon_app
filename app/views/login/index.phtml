@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<?php $this->assets->outputCss(); ?>
+</head>
+<body>
+	<div id="root">
+		<div id="errors">
+			<?php
+				if($this->flash->has("warning")) {
+					$this->flash->output();	
+				}
+			?>
+		</div>
+		<div id="title">
+			<h2>Đăng Nhập</h2>
+		</div>
+		<div id="form">
+			<?php echo $this->tag->form("login") ?>
+				
+				<p class="form-group">
+					<label for="user_name">
+						User Name
+					</label>
+					<?php echo $this->tag->textField("user_name"); ?>
+				</p>
+				<p class="form-group">
+					<label for="password">
+						Password
+					</label>
+					<?php echo $this->tag->passwordField("password"); ?>
+				</p>
+				<p class="form-group">
+					<?php echo $this->tag->submitButton("Đăng Nhập"); ?>
+				</p>
+
+			</form>
+		</div>
+	</div>
+</body>
+</html>
